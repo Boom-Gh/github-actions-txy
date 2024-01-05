@@ -1,0 +1,12 @@
+{
+  // 写入""是提示tailwindcss class
+  "editor.quickSuggestions": {
+    "other": true,
+    // "comments": true,
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    // "source.fixAll.eslint": true
+  },
+  "editor.inlineSuggest.showToolbar": "onHover",
+}

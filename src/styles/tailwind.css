@@ -1,0 +1,5 @@
+/* 由于直接引用@tailwind base; a-button 组件背景颜色和@tailwind base冲突，
+所以通过复制tailwindcss base类进行自定义修改tailwind-base.css */
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    /* Linting */
+    "strict": true,  // 是否启用严格模式
+    "noUnusedLocals": false, // ESlint 已集成不重复使用
+    "noUnusedParameters": false, // ESlint 已集成不重复使用
+    "noFallthroughCasesInSwitch": true,
+    /* 自己加的配置 */
+    "baseUrl": ".", // 设置vscode根目录
+    "paths": {
+      // 让vscode识别别名路径，ctrl + 点击跳转
+      "@/*": [
+        "src/*"
+      ], 
+    }
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    /**
+      "components.d.ts"这里使得组件类型可以得到引入，components.d.ts由unplugin-vue-components自动生成，
+      同组件会获得代码高亮和组件类型提示
+    */
+    "components.d.ts",
+    // 自动导入vue ref 语法
+    "auto-imports.d.ts",
+    "types/**/*"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# .表示当前目录 $0 表示当前脚本的文件名。
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint-staged
