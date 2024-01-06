@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # 安装Node10
       - name: Install Node.js
         # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-            node-version: 16.20.2
+          node-version: 16.20.2
 
       # 安装依赖
       - name: Install npm dependencies
@@ -27,17 +27,18 @@ jobs:
         run: npm run build
       # 上传阿里云
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: easingthemes/ssh-deploy@main
         env:
           # 私钥
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
           # scp参数
-          ARGS: "-rltgoDzvO --delete"
+          ARGS: "-rlgoDzvc -i --delete"
           # 源目录
-          SOURCE: 'dist'
+          SOURCE: 'dist/'
           # 服务器ip：换成你的服务器IP
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           # 用户
           REMOTE_USER: 'root'
           # 目标地址
           TARGET: '/www/wwwroot'
+          EXCLUDE: "/dist/, /node_modules/"
