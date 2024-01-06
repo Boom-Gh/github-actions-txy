@@ -5,7 +5,7 @@
     <div :class="`bg-[rgba(80,215,30,0.06)] dark:bg-gray-400` ">测试tailwindcss 暗黑主题切换</div>
     <SvgIcon name="back_top" color="red"></SvgIcon>
     <SvgIcon name="calendar"></SvgIcon>
-    {{ token.colorText }}4645646
+    {{ token.colorText }}
   </div>
 </template>
 
