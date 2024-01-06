@@ -40,5 +40,5 @@ jobs:
           # 用户
           REMOTE_USER: 'root'
           # 目标地址
-          TARGET: '/www/wwwroot'
+          TARGET: '/www/wwwroot/dist'
           EXCLUDE: "/dist/, /node_modules/"
