@@ -8,35 +8,25 @@ jobs:
   build:
     # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     runs-on: ubuntu-latest
-    steps:
-      # 获取源码
-      - name: 迁出代码
-        # 使用action库  actions/checkout获取源码
-        uses: actions/checkout@master
 
+    steps:
+      - uses: actions/checkout@v2
       # 安装Node10
-      - name: 安装node.js
+      - name: Install Node.js
         # 使用action库  actions/setup-node安装node
         uses: actions/setup-node@v2
         with:
             node-version: 16.20.2
 
       # 安装依赖
-      - name: 安装依赖
+      - name: Install npm dependencies
         run: npm install
 
       # 打包
-      - name: 打包
+      - name: Run build task
         run: npm run build
-      - name: Prepare SSH
-        run: >
-          cd ~ && mkdir .ssh &&
-          touch ~/.ssh/known_hosts &&
-          ssh-keyscan -H "$IP" >>~/.ssh/known_hosts
-        env:
-          IP: ${{ secrets.REMOTE_HOST }}
       # 上传阿里云
-      - name: 发布到腾讯云
+      - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           # 私钥
