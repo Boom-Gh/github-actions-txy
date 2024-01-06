@@ -54,5 +54,8 @@
       "eslint --cache --fix",
       "git add"
     ]
+  },
+  "volta": {
+    "node": "16.20.2"
   }
 }
